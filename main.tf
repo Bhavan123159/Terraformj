@@ -14,7 +14,7 @@ resource "aws_instance" "instance" {
               cd apache-tomcat-9.0.50/bin
               ./startup.sh
               EOF
-  subnet_id = "aws_subnet.Public_sub1.id"
+  subnet_id = "${aws_subnet.Public_sub1.id}"
 }
 
 resource "aws_eip" "my-eip" {
@@ -24,7 +24,7 @@ resource "aws_eip" "my-eip" {
 
 resource "aws_security_group" "allow_ports" {
   name = "allow_pors"
-  vpc_id = "aws_vpc.myvpc.id"
+  vpc_id = "${aws_vpc.myvpc.id}"
   ingress {
     from_port = 80
     to_port = 80
