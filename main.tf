@@ -15,6 +15,9 @@ resource "aws_instance" "instance" {
               ./startup.sh
               EOF
   subnet_id = "${aws_subnet.Public_sub1.id}"
+  tags = {
+    Name = "server_for_tomcat"
+  }
 }
 
 resource "aws_eip" "my-eip" {
